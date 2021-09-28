@@ -11,13 +11,10 @@ import static org.springframework.web.reactive.function.server.RequestPredicates
 
 @Configuration(proxyBeanMethods = false)
 public class MessageRouter {
-	
-	 @Bean
-	  public RouterFunction<ServerResponse> route(MessageHandler messageHandler) {
 
-	    return RouterFunctions
-	      .route(GET("/hello").and(accept(MediaType.APPLICATION_JSON)), messageHandler::hello);
-	  }
+	@Bean
+	public RouterFunction<ServerResponse> route(MessageHandler messageHandler) {
+//The router listens for traffic on the /hello path and returns the value provided by our reactive handler class.
+		return RouterFunctions.route(GET("/hello").and(accept(MediaType.APPLICATION_JSON)), messageHandler::hello);
 	}
-
-
+}

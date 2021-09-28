@@ -10,6 +10,8 @@ import reactor.core.publisher.Mono;
 
 @Component
 public class MessageHandler {
+	
+	// Mono object that holds a ServerResponse body.
 
 	public Mono<ServerResponse> hello(ServerRequest request) {
 		return ServerResponse.ok().contentType(MediaType.APPLICATION_JSON)
